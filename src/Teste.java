@@ -56,7 +56,7 @@ public class Teste {
 				break;
 			case 6:
 				sc.nextLine();
-				System.out.print("Nome da editora: ");
+				System.out.print("Codigo da editora: ");
 				String delEditora = sc.nextLine();
 				System.out.println(b1.removeEditora(delEditora));
 				break;

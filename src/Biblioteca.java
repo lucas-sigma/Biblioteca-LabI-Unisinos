@@ -86,7 +86,6 @@ public class Biblioteca extends Editora {
 				return true;
 			}
 		return false;
-
 	}
 
 	public void listaEditoras() {
