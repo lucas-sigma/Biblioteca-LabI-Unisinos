@@ -46,7 +46,12 @@ public class Teste {
 				b1.listaLivros();
 				break;
 			case 5:
-				Editora e = new Editora(sc.nextLine(), sc.nextLine());
+				sc.nextLine();
+				System.out.print("Nome da editora: ");
+				String nomeEditora = sc.nextLine();
+				System.out.print("Codigo da editora: ");
+				String codeEditora = sc.nextLine();
+				Editora e = new Editora(nomeEditora, codeEditora);
 				b1.insereEditora(e);
 				break;
 			case 6:

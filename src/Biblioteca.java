@@ -31,30 +31,26 @@ public class Biblioteca extends Editora {
 	}
 
 	public boolean removeLivroPelaEditora(String nome) {
-		for (int i = 0; i < this.editoras.length; i++)
-			if (this.editoras[i].getNomeEditora().equalsIgnoreCase(nome)) {
-				this.editoras[i] = null;
-				return true;
-			}
-		return false;
+		try {
+			for (int i = 0; i < this.editoras.length; i++)
+				if (this.editoras[i].getNomeEditora().equalsIgnoreCase(nome)) {
+					this.editoras[i] = null;
+					return true;
+				}
+		} catch (Exception NullPointerException) {
+			System.out.println("Erro ao tentar encontrar a editora.");
+		} finally {
+			return false;
+		}
 
 	}
 
 	public void listaLivros() {
-
 		for (int i = 0; i < this.livros.length; i++) {
 			if (livros[i] != null)
 				System.out.println("Nome: " + livros[i].getNomeLivro() + "\nAutor: " + livros[i].getNomeAutor()
 						+ "\nPaginas: " + livros[i].getNumPaginas());
 		}
-
-		/*
-		 * System.out.println("Nome: " + livros[0].getNomeLivro());
-		 * System.out.println("Autor: " + livros[0].getNomeAutor()); //
-		 * System.out.println("Editora: " + editoras[0].getNomeEditora());
-		 * System.out.println("Paginas: " + livros[0].getNumPaginas());
-		 */
-
 	}
 
 	public boolean insereEditora(Editora editora) {
