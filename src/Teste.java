@@ -34,13 +34,13 @@ public class Teste {
 				sc.nextLine();
 				System.out.print("Livro a ser removido: ");
 				String nome = sc.nextLine();
-				b1.removeLivroPeloNome(nome);
+				System.out.println(b1.removeLivroPeloNome(nome));
 				break;
 			case 3:
 				sc.nextLine();
 				System.out.print("Editora a ser removida: ");
 				String editora = sc.nextLine();
-				b1.removeLivroPelaEditora(editora);
+				System.out.println(b1.removeLivroPelaEditora(editora));
 				break;
 			case 4:
 				b1.listaLivros();
@@ -52,10 +52,13 @@ public class Teste {
 				System.out.print("Codigo da editora: ");
 				String codeEditora = sc.nextLine();
 				Editora e = new Editora(nomeEditora, codeEditora);
-				b1.insereEditora(e);
+				System.out.println(b1.insereEditora(e));
 				break;
 			case 6:
-				b1.removeEditora(sc.nextLine());
+				sc.nextLine();
+				System.out.print("Nome da editora: ");
+				String delEditora = sc.nextLine();
+				System.out.println(b1.removeEditora(delEditora));
 				break;
 			case 7:
 				b1.listaEditoras();

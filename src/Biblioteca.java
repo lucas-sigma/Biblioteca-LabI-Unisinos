@@ -16,7 +16,6 @@ public class Biblioteca extends Editora {
 				this.livros[i] = livro;
 				return true;
 			}
-			System.out.println(livros[i]);
 		}
 		return false;
 	}
@@ -34,6 +33,9 @@ public class Biblioteca extends Editora {
 		try {
 			for (int i = 0; i < this.editoras.length; i++)
 				if (this.editoras[i].getNomeEditora().equalsIgnoreCase(nome)) {
+					for (int j = 0; j < this.livros.length; j++)
+						if (this.livros[j].getCodEditora().equalsIgnoreCase(this.editoras[i].getCodEditora()))
+							this.livros[j] = null;
 					this.editoras[i] = null;
 					return true;
 				}
@@ -46,43 +48,50 @@ public class Biblioteca extends Editora {
 	}
 
 	public void listaLivros() {
+		String editora = "";
+		System.out.println("Teste len.editora: " + this.editoras.length);
+		System.out.println("[0] ==> " + this.editoras[0]);
+		/*
+		 * System.out.println("[1] ==> " + this.editoras[1].getCodEditora());
+		 * System.out.println("[2] ==> " + this.editoras[2].getCodEditora());
+		 * System.out.println("[3] ==> " + this.editoras[3].getCodEditora());
+		 */
 		for (int i = 0; i < this.livros.length; i++) {
+			// for (int j = 0; j < this.editoras.length; j++) {
+			/*
+			 * if (this.editoras[j].getCodEditora().equals(this.livros[i].getCodEditora()))
+			 * { editora = this.editoras[j].getNomeEditora(); break; }
+			 */
+			// }
 			if (livros[i] != null)
 				System.out.println("Nome: " + livros[i].getNomeLivro() + "\nAutor: " + livros[i].getNomeAutor()
-						+ "\nPaginas: " + livros[i].getNumPaginas());
+						+ "\nPaginas: " + livros[i].getNumPaginas() + "\nEditora: " + editora);
 		}
 	}
 
 	public boolean insereEditora(Editora editora) {
-		if (this.editoras.length < this.totEdits) {
-			this.editoras[this.totEdits] = editora;
-			return true;
+		for (int i = 0; i < this.editoras.length; i++) {
+			if (editoras[i] == null) {
+				this.editoras[i] = editora;
+				return true;
+			}
 		}
 		return false;
 	}
 
 	public boolean removeEditora(String cod) {
-		if (this.editoras.length > 0) {
-			for (int i = 0; i < editoras.length; i++)
-				if (this.editoras[i].getCodEditora().equalsIgnoreCase(cod)) {
-					for (int j = i; j < editoras.length; j++) {
-						this.editoras[j] = this.editoras[j + 1];
-						for (int k = 0; k < livros.length; k++) {
-							if (this.livros[k].getCodEditora().equalsIgnoreCase(cod))
-								this.livros[k] = this.livros[k + 1];
-						}
-					}
-					break;
-				}
-			return true;
-		}
+		for (int i = 0; i < editoras.length; i++)
+			if (this.editoras[i].getCodEditora().equalsIgnoreCase(cod)) {
+				this.editoras[i] = null;
+				return true;
+			}
 		return false;
+
 	}
 
 	public void listaEditoras() {
-		for (int i = 0; i < editoras.length; i++) {
+		for (int i = 0; i < editoras.length; i++)
 			editoras[i].toString();
-		}
 	}
 
 }

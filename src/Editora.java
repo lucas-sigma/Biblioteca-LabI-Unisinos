@@ -7,6 +7,7 @@ public class Editora extends Livro {
 	}
 	
 	public Editora(String nomeEditora, String codEditora) {
+		super();
 		this.nomeEditora = nomeEditora;
 		this.codEditora = codEditora;
 	}
